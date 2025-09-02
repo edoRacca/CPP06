@@ -2,10 +2,12 @@
 #ifndef SCALAR_H
 # define SCALAR_H
 
-#include <iostream>
-#include <string>
-#include <cstdlib>
-#include <cmath>
+# include <iostream>
+# include <string>
+# include <cstdlib>
+# include <cmath>
+# include <climits>
+# include <iomanip>
 
 class ScalarConverter
 {

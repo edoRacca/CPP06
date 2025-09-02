@@ -7,6 +7,6 @@ int main(int ac, char **av)
 	ScalarConverter s;
 
 	(void)ac;
-	s.convert(av[0]);
+	s.convert(av[1]);
 	return (0);
 }
