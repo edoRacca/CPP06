@@ -2,11 +2,12 @@
 #ifndef SERIALIZER_H
 # define SERIALIZER_H
 
-# include <cstdint>
 # include <iostream>
 # include <string>
 
 # include "Data.hpp"
+
+typedef unsigned long uintptr_t;
 
 class Serializer
 {

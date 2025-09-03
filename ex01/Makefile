@@ -1,7 +1,7 @@
 
 NAME = serialization
 
-SRC = main.cpp
+SRC = main.cpp Serializer.cpp
 
 RM = rm -rf
 CC = c++
