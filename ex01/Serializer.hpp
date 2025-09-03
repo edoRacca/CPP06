@@ -6,12 +6,7 @@
 # include <iostream>
 # include <string>
 
-struct Data
-{
-	int 		type1;
-	std::string	type2;
-};
-
+# include "Data.hpp"
 
 class Serializer
 {
