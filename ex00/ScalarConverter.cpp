@@ -51,7 +51,7 @@ void print_double(std::string s)
 	double num = atof(s.c_str());
 
 	if (num >= 0 && num < 32)
-		std::cout << "char: Non displayable" << std::endl;
+		std::cout << "char:\tNon displayable" << std::endl;
 	else if (num < 0 || num > 127)
 		std::cout << "char:\timpossible" << std::endl;
 	else
@@ -59,12 +59,12 @@ void print_double(std::string s)
 	if (static_cast<long>(num) < INT_MIN || static_cast<long>(num) > INT_MAX)
 		std::cout << "int:\timpossible" << std::endl;
 	else
-		std::cout << "int: " << static_cast<int>(num) << std::endl;
+		std::cout << "int:\t" << static_cast<int>(num) << std::endl;
 	if (static_cast<double>(num) < std::numeric_limits<float>::min() || static_cast<double>(num) > std::numeric_limits<float>::max())
 		std::cout << "float:\timpossible" << std::endl;
 	else
-		std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
-	if (s.length() > 308 || s[308] == '1')
+		std::cout << "float:\t" << std::fixed << std::setprecision(1) << static_cast<float>(num) << "f" << std::endl;
+	if (s.length() > 308)
 		std::cout << "double:\timpossible" << std::endl;
 	else
 		std::cout << "double:\t" << static_cast<double>(num) << std::endl;
@@ -131,7 +131,7 @@ void ScalarConverter::convert(std::string s)
 {
 	if (s.compare("nan") == 0 || s.compare("nanf") == 0 || s.compare("+inf") == 0 || s.compare("-inf") == 0)
 		return (print_special(s));
-	else if (s.find('.') == (size_t)-1)
+	else if ((s.find('.') != (size_t)-1 && s.length() == 1) || s.find('.') == (size_t)-1)
 	{
 		if (is_char(s, s.length()) == 1)
 			return (print_char(s));

@@ -14,14 +14,14 @@ class ScalarConverter
 {
 
 private:
-	
-
-public:
 	ScalarConverter();
 	ScalarConverter(const ScalarConverter& s);
 	~ScalarConverter();
 
 	ScalarConverter& operator=(const ScalarConverter& s);
+	
+
+public:
 
 	static void convert(std::string s);
 };
