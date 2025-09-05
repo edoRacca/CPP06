@@ -24,6 +24,23 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& s)
 	return (*this);
 }
 
+int	is_number(std::string s, int len)
+{
+	int i = 0;
+
+	if (s[0] == '-' || s[0] == '+')
+		i++;
+	if (s[0] == '.')
+		return (0);
+	while ((s[i] && len < 12) || (s[i] && (s[0] == '-' || s[0] == '+') && len < 11))
+	{
+		if ((s[i] < 48 || s[i] > 57) && s[i] != '.')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	is_char(std::string s, int len)
 {
 	if (len == 1 && !(s[0] >= 48 && s[0] <= 57))
@@ -139,8 +156,8 @@ void ScalarConverter::convert(std::string s)
 			return (print_int(s));
 	}
 	if (s.find('.') != (size_t)-1 && s.find('f') != (size_t)-1) //float
-		return (print_float(s));
-	else if (s.find('.') != (size_t)-1 && s.find('f') == (size_t)-1) //double
+		return (print_float(s));	
+	else if (s.find('.') != (size_t)-1 && s.find('f') == (size_t)-1 && is_number(s, s.length())) //double
 		print_double(s);
 	else
 		std::cout << "Unreadable string passed as parameter" << std::endl;
